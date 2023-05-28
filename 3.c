@@ -13,21 +13,25 @@ void move(struct Move *bot, int a, int b)
     bot->x+=a;
     bot->y+=b;
 };
-// Обходит массив движений и смещает бота, относительно начальной позиции (0;0):
-struct Move getFinishPoint(struct Move arr[], int n)
+// Структура для обхода массива движений и смещения бота, относительно начальной позиции (0;0):
+struct Move FinishPoint(struct Move arr[], int n)
 {
+    // Начальные координаты бота "0;0":
     struct Move bot;
     bot.x=0;
     bot.y=0;
+    // Цикл, который двигает бота по заданным координатам:
     for (int i=0; i < n; i++)
         move(&bot, arr[i].x, arr[i].y);
     return bot;    
 }
 
+// Проверка скрипта:
 void main()
 {
+    // Создаем структуру с последовательным движением бота по координатами x и y:
     struct Move movies[5] = {{15, 34}, {53, -45}, {-23, 40}, {11, 67}, {-34, 59}};
-    struct Move bot = getFinishPoint(movies, 5);
-
+    struct Move bot = FinishPoint(movies, 5);
+    // В ответ выводим конечные координаты бота;
     printf("%d %d", bot.x, bot.y);
 }
