@@ -10,7 +10,8 @@ void sw(int *a, int *b)
     // Указателю "b" присваиваем содержимое "chekPoint":
     *b = chekPoint;
 }
-void main() {
+void main() 
+{
     // Определяем размер массива:
     int num;
     scanf("%d", &num);
